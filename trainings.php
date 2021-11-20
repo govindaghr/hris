@@ -51,7 +51,7 @@ include('./include/header.php');
                                                 function confirmDelete() {                                        
                                                 var getConfirm = confirm("Are you sure you want to delete");
                                                         if(getConfirm == true){
-                                                            window.location.href="delete_training.php?id=<?=$tr_id;?>"
+                                                            window.location.href="./training/delete_training.php?id=<?=$tr_id;?>"
                                                         }
                                                 }
                                             </script>

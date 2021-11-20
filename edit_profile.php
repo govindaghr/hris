@@ -25,7 +25,7 @@ list($employee_id, $cid, $name, $gender, $dob, $email, $mobile, $designation, $d
                                 </div>
                                 <hr>
 
-                                <form class="user needs-validation" novalidate action = "./update/updateProfile.php" method = "POST">
+                                <form class="user needs-validation" novalidate action = "./profile/updateProfile.php" method = "POST">
                                     <div class="mb-3 row">
                                         <label for="empid" class="col-sm-4 col-form-label">Employee ID</label>
                                         <div class="col-sm-8">

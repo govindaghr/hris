@@ -1,4 +1,7 @@
-<?php include('./include/header.php') ?>
+<?php 
+include('./include/header.php');
+
+ ?>
 <!-- Begin Page Content -->
  <div class="container-fluid">
     <!-- <a href="#" class="btn btn-success btn-icon-split">

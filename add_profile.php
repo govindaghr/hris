@@ -53,7 +53,7 @@
                                     </div>
                                     <hr>
 
-                                    <form class="user needs-validation" novalidate action = "./save/saveProfile.php" method = "POST">
+                                    <form class="user needs-validation" novalidate action = "./profile/saveProfile.php" method = "POST">
                                         <div class="mb-3 row">
                                             <label for="empid" class="col-sm-4 col-form-label">Employee ID</label>
                                             <div class="col-sm-8">

@@ -68,7 +68,7 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Login Screens:</h6> -->
-                        <a class="collapse-item" href="addBiodata.php">Bio Data</a>
+                        <a class="collapse-item" href="edit_profile.php">Bio Data</a>
                         <a class="collapse-item" href="qualifications.php">Qualification</a>
                         <a class="collapse-item" href="trainings.php">Trainings</a>
                         <a class="collapse-item" href="view_performance_rating.php">Performance Rating</a>
@@ -148,7 +148,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="addBiodata.php">
+                                <a class="dropdown-item" href="edit_profile.php">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>

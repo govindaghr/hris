@@ -21,7 +21,7 @@ list($q_id, $emp_id, $course_title, $qualification_level, $funding_source, $coun
                                 </div>
                                 <hr>
 
-                                <form class="user needs-validation" novalidate action = "./update/update_qualification.php" enctype="multipart/form-data" method = "POST">
+                                <form class="user needs-validation" novalidate action = "./qualification/update_qualification.php" enctype="multipart/form-data" method = "POST">
                                     <div class="mb-3 row">
                                         <label for="empid" class="col-sm-4 col-form-label">Employee ID</label>
                                         <div class="col-sm-8">
@@ -42,10 +42,10 @@ list($q_id, $emp_id, $course_title, $qualification_level, $funding_source, $coun
                                             $qll=mysqli_query($con,"SELECT `ql_name` FROM `qualification_level` WHERE ql_id=".$qualification_level);
                                             list($qul_name)=mysqli_fetch_row($qll);
                                             ?>
-                                            <option value="<?=$q_id;?>" selected><?=$qul_name;?></option>
+                                            <option value="<?=$qualification_level;?>" selected><?=$qul_name;?></option>
                                             <?php
-                                                $qualification_level=mysqli_query($con,"SELECT `ql_id`, `ql_name` FROM `qualification_level`");
-                                                while(list($ql_id,$ql_name)=mysqli_fetch_row($qualification_level)){                                                        
+                                                $qualification_l=mysqli_query($con,"SELECT `ql_id`, `ql_name` FROM `qualification_level`");
+                                                while(list($ql_id,$ql_name)=mysqli_fetch_row($qualification_l)){                                                        
                                                         echo '<option value="'.$ql_id.'">'.$ql_name.'</option>';			
                                                 }
                                             ?>

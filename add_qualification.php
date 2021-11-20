@@ -17,7 +17,7 @@ include('./include/header.php');
                                 </div>
                                 <hr>
 
-                                <form class="user needs-validation" novalidate action = "./save/save_qualification.php" enctype="multipart/form-data" method = "POST">
+                                <form class="user needs-validation" novalidate action = "./qualification/save_qualification.php" enctype="multipart/form-data" method = "POST">
                                     <div class="mb-3 row">
                                         <label for="empid" class="col-sm-4 col-form-label">Employee ID</label>
                                         <div class="col-sm-8">

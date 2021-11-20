@@ -6,7 +6,7 @@ if(!isset($_SESSION['emp_id']) || (trim($_SESSION['emp_id']) == '')) {
     header("location:".$_SERVER['DOCUMENT_ROOT']."/hris/login.php");
     exit();
 } 
-require_once('./include/connection.php');
+require_once('../include/connection.php');
 $id=$_GET['id'];
     $sqlunlink = mysqli_query($con,"SELECT certificate FROM qualification WHERE q_id=".$id);
 			while($row = mysqli_fetch_array($sqlunlink)){ 		
@@ -23,7 +23,7 @@ $id=$_GET['id'];
             ?>
             <script type="text/javascript">
                 alert("Data Deleted Successfully");
-                window.location.href = "./qualifications.php";
+                window.location.href = "../qualifications.php";
             </script>
             <?php
     }

@@ -6,7 +6,7 @@ if(!isset($_SESSION['emp_id']) || (trim($_SESSION['emp_id']) == '')) {
     header("location:".$_SERVER['DOCUMENT_ROOT']."/hris/login.php");
     exit();
 } 
-require_once('./include/connection.php');
+require_once('../include/connection.php');
 $id=$_GET['id'];
 	
 	$del_training="DELETE FROM training WHERE tr_id=".$id;
@@ -15,7 +15,7 @@ $id=$_GET['id'];
             ?>
             <script type="text/javascript">
                 alert("Data Deleted Successfully");
-                window.location.href = "./trainings.php";
+                window.location.href = "../trainings.php";
             </script>
             <?php
     }

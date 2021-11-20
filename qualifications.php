@@ -58,7 +58,7 @@ include('./include/header.php');
                                                 function confirmDelete() {                                        
                                                 var getConfirm = confirm("Are you sure you want to delete");
                                                         if(getConfirm == true){
-                                                            window.location.href="delete_qualification.php?id=<?=$q_id;?>"
+                                                            window.location.href="./qualification/delete_qualification.php?id=<?=$q_id;?>"
                                                         }
                                                         // else{
                                                         //     alert("You have cancelled!");

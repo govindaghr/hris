@@ -21,7 +21,7 @@ list($q_id, $course_title, $start_date, $end_date, $emp_id, $funding_source, $re
                                 </div>
                                 <hr>
 
-                                <form class="user needs-validation" novalidate action = "./update/update_training.php" enctype="multipart/form-data" method = "POST">
+                                <form class="user needs-validation" novalidate action = "./training/update_training.php" enctype="multipart/form-data" method = "POST">
                                     <div class="mb-3 row">
                                         <label for="empid" class="col-sm-4 col-form-label">Employee ID</label>
                                         <div class="col-sm-8">

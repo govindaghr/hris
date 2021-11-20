@@ -29,7 +29,7 @@
             ?>
             <script type="text/javascript">
                 alert("Data Updated Successfully");
-                window.location.href = "../addBiodata.php";
+                window.location.href = "../edit_profile.php";
             </script>
             <?php
 		}

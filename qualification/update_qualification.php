@@ -33,7 +33,8 @@
 		}
 		
 		else{	
-			echo('<div class="alert alert-warning"> <button type="button" class="close" data-dismiss="alert">&times;</button>Posts Addition Failed.</div>'); 
+			echo("Error description: " . mysqli_error($con));
+			mysqli_close($con);
 		}
 		 
 ?>
