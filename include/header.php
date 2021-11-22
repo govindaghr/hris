@@ -60,17 +60,63 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Profile"
+                    aria-expanded="true" aria-controls="Profile">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Profile</span>
                 </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div id="Profile" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Login Screens:</h6> -->
                         <a class="collapse-item" href="edit_profile.php">Bio Data</a>
                         <a class="collapse-item" href="qualifications.php">Qualification</a>
                         <a class="collapse-item" href="trainings.php">Trainings</a>
+                        <a class="collapse-item" href="view_performance_rating.php">Performance Rating</a>
+                        
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Manage"
+                    aria-expanded="true" aria-controls="Manage">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Manage</span>
+                </a>
+                <div id="Manage" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Login Screens:</h6> -->
+                        <a class="collapse-item" href="staff_login.php">Staff Login</a>
+                        <a class="collapse-item" href="department.php">Department</a>
+                        <a class="collapse-item" href="performance_rating.php">Performance Rating</a>
+                        <a class="collapse-item" href="release_order.php">Sign Release Order</a>
+                        <a class="collapse-item" href="verify_trainings.php">Verify Trainings</a>
+                        
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Reports"
+                    aria-expanded="true" aria-controls="Reports">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Reports</span>
+                </a>
+                <div id="Reports" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Login Screens:</h6> -->
+                        <a class="collapse-item" href="edit_profile.php">View Staff Release</a>
+                        <a class="collapse-item" href="edit_profile.php">View CV</a>
+                        <a class="collapse-item" href="qualifications.php">Performance Rating</a>
+                        <a class="collapse-item" href="trainings.php">Sign Release Order</a>
                         <a class="collapse-item" href="view_performance_rating.php">Performance Rating</a>
                         
                     </div>
@@ -152,14 +198,6 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <!-- <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
