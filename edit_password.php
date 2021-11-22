@@ -1,5 +1,9 @@
 <?php
 include('./include/header.php');
+$emp_id=$_GET['id'];
+$login_Qry=mysqli_query($con,"SELECT `password`, `access_level`, `last_login`, `status` FROM `login` WHERE `emp_id`=".$emp_id);
+list($password, $a_level, $last_login, $status1)=mysqli_fetch_row($login_Qry);
+
 ?>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -12,48 +16,20 @@ include('./include/header.php');
                             <div class="p-5">
                                 <!-- Page Heading -->
                                 <div class="text-center">
-                                    <h1 class="h3 mb-0 text-gray-800">Add Login Details</h1>
+                                    <h1 class="h3 mb-0 text-gray-800">Change Password</h1>
                                 </div>
                                 <hr>
                                 
-                                <form class="user needs-validation" novalidate action = "./login/save_staff_login.php" method = "POST">
+                                <form class="user needs-validation" novalidate action = "./login/update_password.php" method = "POST">
                                     
                                     <div class="form-group">
                                         <label for="empid" class="form-label">Employee ID</label>
-                                        <input type="text" name="emp_id" id="empid" class="form-control" required >
+                                        <input type="text" name="emp_id" id="empid" class="form-control" value=<?=$emp_id;?> required readonly>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="password" class="form-label">Password</label>
                                         <input type="text" name="password" id="course_title" class="form-control" required >
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="access_level" class="form-label">Access Level</label>
-                                        <select class="form-select form-control" name="access_level" id="access_level" aria-label="Select access_level" required >
-                                            <option value="" selected>Select</option>
-                                            <?php
-
-                                                $access_level=mysqli_query($con,"SELECT `access_id`, `access_desc` FROM `access_level`");
-                                                while(list($access_id,$access_desc)=mysqli_fetch_row($access_level)){                                                        
-                                                        echo '<option value="'.$access_id.'">'.$access_desc.'</option>';			
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="status" class="form-label">Status</label>
-                                        <select class="form-select form-control" name="status" id="status" aria-label="Select status" required >
-                                            <option value="" selected>Select</option>
-                                            <?php
-
-                                                $status=mysqli_query($con,"SELECT `status_id`, `status_desc` FROM `status`");
-                                                while(list($status_id,$status_desc)=mysqli_fetch_row($status)){                                                        
-                                                        echo '<option value="'.$status_id.'">'.$status_desc.'</option>';			
-                                                }
-                                            ?>
-                                        </select>
                                     </div>
 
                                     <a href="./staff_login.php" class="btn btn-primary btn-user btn-inline">Back<a>
