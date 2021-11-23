@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2021 at 03:03 PM
+-- Generation Time: Nov 23, 2021 at 02:13 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `hris`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `access_level`
+--
+
+CREATE TABLE `access_level` (
+  `access_id` int(11) NOT NULL,
+  `access_desc` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `access_level`
+--
+
+INSERT INTO `access_level` (`access_id`, `access_desc`) VALUES
+(1, 'Employee'),
+(2, 'Head of Department'),
+(3, 'Administrative Officer'),
+(4, 'President and Deans');
 
 -- --------------------------------------------------------
 
@@ -100,17 +121,19 @@ CREATE TABLE `login` (
   `emp_id` bigint(14) NOT NULL,
   `password` varchar(100) NOT NULL,
   `access_level` int(1) NOT NULL,
-  `last_login` datetime NOT NULL
+  `last_login` datetime DEFAULT NULL,
+  `status` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`emp_id`, `password`, `access_level`, `last_login`) VALUES
-(20131004347, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, '2021-11-18 20:16:17'),
-(20131004348, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 2, '2021-11-19 17:22:04'),
-(20131004349, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 1, '2021-11-19 17:22:29');
+INSERT INTO `login` (`emp_id`, `password`, `access_level`, `last_login`, `status`) VALUES
+(20131004347, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, '2021-11-18 20:16:17', 2),
+(20131004348, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 2, '2021-11-19 17:22:04', 1),
+(20131004349, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 1, '2021-11-23 00:47:04', 1),
+(20131004350, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 4, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -119,11 +142,21 @@ INSERT INTO `login` (`emp_id`, `password`, `access_level`, `last_login`) VALUES
 --
 
 CREATE TABLE `performance_rating` (
+  `pr_id` int(11) NOT NULL,
   `emp_id` bigint(14) DEFAULT NULL,
   `fiscal_yr` varchar(10) DEFAULT NULL,
   `rating` float(3,2) NOT NULL,
   `remarks` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `performance_rating`
+--
+
+INSERT INTO `performance_rating` (`pr_id`, `emp_id`, `fiscal_yr`, `rating`, `remarks`) VALUES
+(1, 20131004349, '2016-2017', 3.50, 'er'),
+(2, 20131004349, '2017-2018', 3.50, 'sdf'),
+(4, 20131004349, '2018-2019', 3.00, 'good');
 
 -- --------------------------------------------------------
 
@@ -238,6 +271,25 @@ CREATE TABLE `staff_release` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `status`
+--
+
+CREATE TABLE `status` (
+  `status_id` int(2) NOT NULL,
+  `status_desc` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `status`
+--
+
+INSERT INTO `status` (`status_id`, `status_desc`) VALUES
+(1, 'Active'),
+(2, 'Inactive');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `training`
 --
 
@@ -248,19 +300,27 @@ CREATE TABLE `training` (
   `end_date` date NOT NULL,
   `emp_id` bigint(14) NOT NULL,
   `funding_source` varchar(50) NOT NULL,
-  `remarks` varchar(255) NOT NULL
+  `remarks` varchar(255) NOT NULL,
+  `verification_status` int(2) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `training`
 --
 
-INSERT INTO `training` (`tr_id`, `course_title`, `start_date`, `end_date`, `emp_id`, `funding_source`, `remarks`) VALUES
-(1, 'BEEE', '2021-11-05', '2021-11-26', 20131004349, 'Private', 'sdfg');
+INSERT INTO `training` (`tr_id`, `course_title`, `start_date`, `end_date`, `emp_id`, `funding_source`, `remarks`, `verification_status`) VALUES
+(1, 'BEEE', '2021-11-05', '2021-11-26', 20131004349, 'Private', 'sdfg', 0),
+(4, 'Cisco CCNA', '2021-11-02', '2021-11-22', 20131004349, 'Private', 'yes', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `access_level`
+--
+ALTER TABLE `access_level`
+  ADD PRIMARY KEY (`access_id`);
 
 --
 -- Indexes for table `department`
@@ -286,12 +346,15 @@ ALTER TABLE `employee`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`emp_id`);
+  ADD PRIMARY KEY (`emp_id`),
+  ADD KEY `access_level` (`access_level`),
+  ADD KEY `status` (`status`);
 
 --
 -- Indexes for table `performance_rating`
 --
 ALTER TABLE `performance_rating`
+  ADD PRIMARY KEY (`pr_id`),
   ADD KEY `fiscal_yr` (`fiscal_yr`),
   ADD KEY `emp_id` (`emp_id`);
 
@@ -322,6 +385,12 @@ ALTER TABLE `staff_release`
   ADD PRIMARY KEY (`sr_id`);
 
 --
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`status_id`);
+
+--
 -- Indexes for table `training`
 --
 ALTER TABLE `training`
@@ -331,6 +400,12 @@ ALTER TABLE `training`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `access_level`
+--
+ALTER TABLE `access_level`
+  MODIFY `access_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -343,6 +418,12 @@ ALTER TABLE `department`
 --
 ALTER TABLE `designation`
   MODIFY `desig_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `performance_rating`
+--
+ALTER TABLE `performance_rating`
+  MODIFY `pr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `position_level`
@@ -369,10 +450,16 @@ ALTER TABLE `staff_release`
   MODIFY `sr_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `status_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `training`
 --
 ALTER TABLE `training`
-  MODIFY `tr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `tr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -383,6 +470,13 @@ ALTER TABLE `training`
 --
 ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`department`) REFERENCES `department` (`dept_id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `login`
+--
+ALTER TABLE `login`
+  ADD CONSTRAINT `login_ibfk_1` FOREIGN KEY (`access_level`) REFERENCES `access_level` (`access_id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `login_ibfk_2` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `qualification`

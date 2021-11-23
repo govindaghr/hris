@@ -47,7 +47,7 @@ include('./include/header.php');
                                             <td><?=$al;?></td>
                                             <td><?=$sts;?></td>
                                             <td><?=$last_login;?></td>
-                                            <td><a class="btn btn-primary btn-user btn-sm" href="edit_pass.php?id=<?=$emp_id;?>">Edit</a>  <a class="btn btn-primary btn-user btn-sm" href="edit_password.php?id=<?=$emp_id;?>">ChangePassword</a></td>
+                                            <td><a class="btn btn-primary btn-user btn-sm" href="edit_staff_login.php?id=<?=$emp_id;?>">Edit</a>  <a class="btn btn-primary btn-user btn-sm" href="edit_password.php?id=<?=$emp_id;?>">ChangePassword</a></td>
                                         </tr>
                                         <?php                                            
                                         }

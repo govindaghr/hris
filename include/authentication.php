@@ -11,7 +11,7 @@
     $password = stripcslashes($password);  
     $username = mysqli_real_escape_string($con, $username);  
     $password = mysqli_real_escape_string($con, $password);
-    $sql = "SELECT emp_id, access_level FROM login WHERE emp_id = '$username' and password = '".sha1($password)."'";
+    $sql = "SELECT emp_id, access_level FROM login WHERE emp_id = '$username' and password = '".sha1($password)."' AND status=1";
     $result = mysqli_query($con, $sql);
     // $row1 = mysqli_fetch_array($result, MYSQLI_ASSOC);  
     $count = mysqli_num_rows($result);

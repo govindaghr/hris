@@ -91,7 +91,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Login Screens:</h6> -->
                         <a class="collapse-item" href="staff_login.php">Staff Login</a>
-                        <a class="collapse-item" href="department.php">Department</a>
+                        <!-- <a class="collapse-item" href="department.php">Department</a> -->
                         <a class="collapse-item" href="performance_rating.php">Performance Rating</a>
                         <a class="collapse-item" href="release_order.php">Sign Release Order</a>
                         <a class="collapse-item" href="verify_trainings.php">Verify Trainings</a>
