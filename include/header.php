@@ -124,8 +124,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <!-- <h6 class="collapse-header">Login Screens:</h6> -->                        
                         <a class="collapse-item" href="employee_details.php">Employee Details</a>
-                        <a class="collapse-item" href="edit_profile.php">View Staff Details</a>
-                        <a class="collapse-item" href="employee_details.php">View Performance Rating</a>
+                        <!-- <a class="collapse-item" href="edit_profile.php">View Staff Details</a>
+                        <a class="collapse-item" href="employee_details.php">View Performance Rating</a> -->
                         
                     </div>
                 </div>

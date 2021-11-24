@@ -1,7 +1,7 @@
 <?php
 include('./include/header.php');
 $employee_id = $_GET['id'];
-$qry=mysqli_query($con,"SELECT `employee_id`, `cid`, `name`, `gender`, `dob`, `email`, `mobile`, `designation`, `department`, `nationality`, `address`, `service_status`, `position_level` FROM `employee` WHERE employee_id='".$emp_id."'");
+$qry=mysqli_query($con,"SELECT `employee_id`, `cid`, `name`, `gender`, `dob`, `email`, `mobile`, `designation`, `department`, `nationality`, `address`, `service_status`, `position_level` FROM `employee` WHERE employee_id='".$employee_id."'");
 list($employee_id, $cid, $name, $gender, $dob, $email, $mobile, $designation, $department, $nationality, $address, $service_status, $position_level)=mysqli_fetch_row($qry);
 ?>
 

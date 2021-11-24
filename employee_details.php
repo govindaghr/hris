@@ -72,7 +72,7 @@ include('./include/header.php');
                                             <td><?=$pos;?></td>
                                             <td>
                                                 <a class="btn btn-primary btn-user btn-sm" href="view_cv.php?id=<?=$employee_id;?>">View CV</a>
-                                                <a class="btn btn-primary btn-user btn-sm" href="add_release_request.php?id=<?=$employee_id;?>">View Release Order</a>
+                                                <a class="btn btn-primary btn-user btn-sm" href="view_staff_release.php?id=<?=$employee_id;?>">View Release Order</a>
                                                 <!-- <a class="btn btn-primary btn-user btn-sm" href="view_performance_rating.php?id=<?=$employee_id;?>">View Release Order</a> -->
                                             </td>
                                         </tr>

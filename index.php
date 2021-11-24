@@ -1,5 +1,7 @@
 <?php 
 include('./include/header.php');
+$qry=mysqli_query($con,"SELECT COUNT(`employee_id`) FROM `employee` ");
+list($counts)=mysqli_fetch_row($qry);
 
  ?>
 <!-- Begin Page Content -->
@@ -29,7 +31,7 @@ include('./include/header.php');
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                 Employees (Total)
                             </div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$counts;?></div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-users fa-2x text-gray-300"></i>
@@ -45,19 +47,14 @@ include('./include/header.php');
             <!-- Illustrations -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Announcement</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Welcome Here</h6>
                 </div>
                 <div class="card-body">
                     <div class="text-center">
                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
                             src="img/undraw_posting_photo.svg" alt="...">
                     </div>
-                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                        constantly updated collection of beautiful svg images that you can use
-                        completely free and without attribution!</p>
-                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                        unDraw &rarr;</a>
+                    <p>The human resource information system collects and stores data on an organization’s employees. It encompasses the basic functionalities needed for end-to-end human resources management. It is a system for performance monitoring, management, and maintaining proper records of employee’s details. Human resource information systems also help to keep track of changes to anything related to employees. Such human resource information systems are also required in college institutions</p>
                 </div>
             </div>
         </div>
@@ -69,11 +66,7 @@ include('./include/header.php');
                     <h6 class="m-0 font-weight-bold text-primary">Notifications</h6>
                 </div>
                 <div class="card-body">
-                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                        custom components and custom utility classes.</p>
-                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                        Bootstrap framework, especially the utility classes.</p>
+                    <p class="mb-0">You do not have any notifications for now.</p>
                 </div>
             </div>
 

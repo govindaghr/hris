@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2021 at 02:13 PM
+-- Generation Time: Nov 24, 2021 at 12:46 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -80,7 +80,32 @@ INSERT INTO `designation` (`desig_id`, `desig_name`) VALUES
 (1, 'President'),
 (2, 'Professor'),
 (3, 'Associate Professor'),
-(4, 'Assistant Professor');
+(4, 'Assistant Professor'),
+(5, 'Lecturer'),
+(6, 'Associate Lecturer'),
+(7, 'Asst. Lecturer'),
+(8, 'Sr. Lab Technician'),
+(9, 'Sr. Lab Assistant'),
+(10, 'Lab Assistant'),
+(11, 'ADM OFFICER'),
+(12, 'Senior ADM Assistant'),
+(13, 'Store Incharge'),
+(14, 'Estate Manager'),
+(15, 'Student Service Officer'),
+(16, 'ADM Assistant'),
+(17, 'Research Officer'),
+(18, 'Carpenter'),
+(19, 'Personal Assistant'),
+(20, 'Electrician'),
+(21, 'Library Assistant'),
+(22, 'SR. ICT OFFICER'),
+(23, 'ICT OFFICER'),
+(24, 'ICT Associate'),
+(25, 'FINANCE OFFICER'),
+(26, 'ASSISTANT FINANCE OFFICER'),
+(27, 'Accountant'),
+(28, 'Cook'),
+(29, 'Sweeper');
 
 -- --------------------------------------------------------
 
@@ -109,7 +134,9 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`employee_id`, `cid`, `name`, `gender`, `dob`, `email`, `mobile`, `designation`, `department`, `nationality`, `address`, `service_status`, `position_level`) VALUES
-(20131004349, 11305001919, 'Govinda Ghimeray', 'Male', '1990-10-01', 'govindaghr@yahoo.com', 1234563, 1, 1, 'Bhutanese', 'wert', 1, 20);
+(20131004347, 11915000409, 'Karma Tenzin', 'Male', '1991-06-23', '02190172.cst@rub.edu.bt', 1234564, 2, 1, 'Bhutanese', 'nn', 1, 4),
+(20131004348, 11915000410, 'Dorji Khandu', 'Male', '1994-01-23', 'govindaghr@yahoo.com', 1234565, 4, 2, 'Bhutanese', 'Hello', 1, 16),
+(20131004349, 11305001919, 'Govinda Ghimeray', 'Male', '1990-10-01', 'govindaghr@yahoo.com', 1234563, 24, 1, 'Bhutanese', 'Rinchending', 1, 12);
 
 -- --------------------------------------------------------
 
@@ -130,9 +157,9 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`emp_id`, `password`, `access_level`, `last_login`, `status`) VALUES
-(20131004347, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, '2021-11-18 20:16:17', 2),
-(20131004348, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 2, '2021-11-19 17:22:04', 1),
-(20131004349, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 1, '2021-11-23 00:47:04', 1),
+(20131004347, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, '2021-11-23 21:30:23', 1),
+(20131004348, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 2, '2021-11-23 21:25:59', 1),
+(20131004349, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, '2021-11-24 14:16:06', 1),
 (20131004350, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 4, NULL, 1);
 
 -- --------------------------------------------------------
@@ -154,7 +181,6 @@ CREATE TABLE `performance_rating` (
 --
 
 INSERT INTO `performance_rating` (`pr_id`, `emp_id`, `fiscal_yr`, `rating`, `remarks`) VALUES
-(1, 20131004349, '2016-2017', 3.50, 'er'),
 (2, 20131004349, '2017-2018', 3.50, 'sdf'),
 (4, 20131004349, '2018-2019', 3.00, 'good');
 
@@ -258,15 +284,23 @@ INSERT INTO `qualification_level` (`ql_id`, `ql_name`) VALUES
 CREATE TABLE `staff_release` (
   `sr_id` int(11) NOT NULL,
   `empid` bigint(14) NOT NULL,
+  `nominated_for` varchar(100) DEFAULT NULL,
   `start_date` date NOT NULL,
-  `end-date` date NOT NULL,
+  `end_date` date NOT NULL,
   `nomination_date` date NOT NULL,
   `nominated_by` bigint(14) NOT NULL,
-  `date_approved` date NOT NULL,
-  `approved_by` bigint(14) NOT NULL,
-  `approval_status` int(1) NOT NULL,
-  `remarks` varchar(255) NOT NULL
+  `date_approved` date DEFAULT NULL,
+  `approved_by` bigint(14) DEFAULT NULL,
+  `approval_status` varchar(10) DEFAULT NULL,
+  `remarks` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `staff_release`
+--
+
+INSERT INTO `staff_release` (`sr_id`, `empid`, `nominated_for`, `start_date`, `end_date`, `nomination_date`, `nominated_by`, `date_approved`, `approved_by`, `approval_status`, `remarks`) VALUES
+(2, 20131004347, 'CCNA Training at Paro', '2021-11-01', '2021-11-23', '2021-11-23', 20131004349, '2021-11-24', 20131004349, 'Approved', 'ff');
 
 -- --------------------------------------------------------
 
@@ -417,7 +451,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `designation`
 --
 ALTER TABLE `designation`
-  MODIFY `desig_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `desig_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `performance_rating`
@@ -447,7 +481,7 @@ ALTER TABLE `qualification_level`
 -- AUTO_INCREMENT for table `staff_release`
 --
 ALTER TABLE `staff_release`
-  MODIFY `sr_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `sr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `status`
