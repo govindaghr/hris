@@ -42,7 +42,21 @@ include('./include/header.php');
                                     </tfoot>
                                     <tbody>
                                         <?php
-                                        $tr_Qry=mysqli_query($con,"SELECT `employee_id`, `name`, `gender`, `email`, `mobile`, `designation`, `department`, `position_level` FROM `employee` ORDER BY `position_level` ASC");
+                                        // $tr_Qry=mysqli_query($con,"SELECT `employee_id`, `name`, `gender`, `email`, `mobile`, `designation`, `department`, `position_level` FROM `employee` ORDER BY `position_level` ASC");
+
+                                        $sql = "SELECT `employee_id`, `name`, `gender`, `email`, `mobile`, `designation`, `department`, `position_level` FROM `employee` WHERE 1 ";
+
+                                        if ($acl==1){
+
+                                            $sql.=" AND `employee_id` = $emp_id ";
+                                        }
+                                        if ($acl==2){
+                                            list($hod_dept)=mysqli_fetch_row(mysqli_query($con,"SELECT `department` FROM `employee` WHERE employee_id=".$emp_id));
+
+                                            $sql.=" AND `department` = $hod_dept ";
+                                        }
+                                        $sql.=" ORDER BY `position_level` ASC";
+                                        $tr_Qry=mysqli_query($con,$sql);
                                         while(list($employee_id, $name, $gender, $email, $mobile, $designation, $department, $position_level)=mysqli_fetch_row($tr_Qry)){
                                             list($dept)=mysqli_fetch_row(mysqli_query($con,"SELECT `dept_name` FROM `department` WHERE `dept_id`=".$department));
                                             list($desig)=mysqli_fetch_row(mysqli_query($con,"SELECT `desig_name` FROM `designation` WHERE `desig_id`=".$designation));
@@ -56,7 +70,11 @@ include('./include/header.php');
                                             <td><?=$desig;?></td>
                                             <td><?=$dept;?></td>
                                             <td><?=$pos;?></td>
-                                            <td><a class="btn btn-primary btn-user btn-sm" href="add_performance_rating.php?id=<?=$employee_id;?>">Add Ratings</a></td>
+                                            <td>
+                                                <a class="btn btn-primary btn-user btn-sm" href="view_cv.php?id=<?=$employee_id;?>">View CV</a>
+                                                <a class="btn btn-primary btn-user btn-sm" href="add_release_request.php?id=<?=$employee_id;?>">View Release Order</a>
+                                                <!-- <a class="btn btn-primary btn-user btn-sm" href="view_performance_rating.php?id=<?=$employee_id;?>">View Release Order</a> -->
+                                            </td>
                                         </tr>
                                         <?php                                            
                                         }

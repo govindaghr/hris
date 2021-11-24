@@ -71,7 +71,7 @@
                         <a class="collapse-item" href="edit_profile.php">Bio Data</a>
                         <a class="collapse-item" href="qualifications.php">Qualification</a>
                         <a class="collapse-item" href="trainings.php">Trainings</a>
-                        <a class="collapse-item" href="view_performance_rating.php">Performance Rating</a>
+                        <!-- <a class="collapse-item" href="view_performance_rating.php">Performance Rating</a> -->
                         
                     </div>
                 </div>
@@ -122,12 +122,10 @@
                 </a>
                 <div id="Reports" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <!-- <h6 class="collapse-header">Login Screens:</h6> -->
-                        <a class="collapse-item" href="edit_profile.php">View Staff Release</a>
-                        <a class="collapse-item" href="edit_profile.php">View CV</a>
-                        <a class="collapse-item" href="qualifications.php">Performance Rating</a>
-                        <a class="collapse-item" href="trainings.php">Sign Release Order</a>
-                        <a class="collapse-item" href="view_performance_rating.php">Performance Rating</a>
+                        <!-- <h6 class="collapse-header">Login Screens:</h6> -->                        
+                        <a class="collapse-item" href="employee_details.php">Employee Details</a>
+                        <a class="collapse-item" href="edit_profile.php">View Staff Details</a>
+                        <a class="collapse-item" href="employee_details.php">View Performance Rating</a>
                         
                     </div>
                 </div>

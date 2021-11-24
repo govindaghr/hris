@@ -20,8 +20,8 @@ $eid = $_GET['id'];
                                             <th>End_date</th>
                                             <th>Nomination_date</th>
                                             <th>Nominated_by</th>
-                                            <th>Date Approved</th>
-                                            <th>Approved By</th>
+                                            <th>Date Signed</th>
+                                            <th>Signed By</th>
                                             <th>Approval Status</th>
                                             <th>Remarks</th>
                                             <th>Action</th>
@@ -34,8 +34,8 @@ $eid = $_GET['id'];
                                             <th>End_date</th>
                                             <th>Nomination_date</th>
                                             <th>Nominated_by</th>
-                                            <th>Date Approved</th>
-                                            <th>Approved By</th>
+                                            <th>Date Signed</th>
+                                            <th>Signed By</th>
                                             <th>Approval Status</th>
                                             <th>Remarks</th>
                                             <th>Action</th>
@@ -44,7 +44,7 @@ $eid = $_GET['id'];
                                     <tbody>
                                         <?php
                                         $tr_Qry=mysqli_query($con,"SELECT `sr_id`, `empid`, `nominated_for`, `start_date`, `end_date`, `nomination_date`, `nominated_by`, `date_approved`, `approved_by`, `approval_status`, `remarks` FROM `staff_release` WHERE `empid`='".$eid."' ORDER BY `end_date` DESC");
-                                    // if(mysqli_num_rows($tr_Qry)>0){
+
                                         while(list($sr_id, $emp_id, $nominated_for, $start_date, $end_date, $nomination_date, $nominated_by, $date_approved, $approved_by, $approval_status, $remarks)=mysqli_fetch_row($tr_Qry)){
                                         ?>
                                         <tr>
@@ -57,11 +57,15 @@ $eid = $_GET['id'];
                                             <td><?=$approved_by;?></td>
                                             <td><?=$approval_status;?></td>
                                             <td><?=$remarks;?></td>
-                                            <td><a href="./release_order/delete_rr.php?id=<?=$sr_id;?>&emp_id=<?=$emp_id;?>" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td>
+                                            <td>
+                                                <?php if($acl==2){
+                                                    ?>
+                                                    <a href="./release_order/delete_rr.php?id=<?=$sr_id;?>&emp_id=<?=$emp_id;?>" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                                                <?php } ?>
+                                            </td>
                                         </tr>
                                         <?php
-                                        }                                          
-                                    // }
+                                        }
                                         ?>
                                     </tbody>
                                 </table>
@@ -71,7 +75,8 @@ $eid = $_GET['id'];
 
                 </div>
                 <!-- /.container-fluid -->
-
+<?php if($acl==2) { 
+    ?>
                  <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -128,6 +133,7 @@ $eid = $_GET['id'];
                 </div>
                 <!-- /.container-fluid -->
 
+<?php }  ?>
 
                                
 
