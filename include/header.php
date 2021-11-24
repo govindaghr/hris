@@ -2,7 +2,7 @@
 	require('./include/auth_users.php');  
 	include('./include/connection.php');
 	$emp_id=$_SESSION['emp_id'];
-	// $acl=$_SESSION['acl'];
+	$acl=$_SESSION['acl'];
 	list($employee_name)=mysqli_fetch_row(mysqli_query($con,"SELECT name FROM employee WHERE employee_id='".$emp_id."'"));
 ?>
 <!DOCTYPE html>
@@ -77,9 +77,11 @@
                 </div>
             </li>
 
+            <?php
+            if ($acl==3 || $acl==2){
+            ?>
             <!-- Divider -->
             <hr class="sidebar-divider">
-
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Manage"
@@ -89,16 +91,24 @@
                 </a>
                 <div id="Manage" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                    <?php if ($acl==3){?>    
                         <!-- <h6 class="collapse-header">Login Screens:</h6> -->
                         <a class="collapse-item" href="staff_login.php">Staff Login</a>
                         <!-- <a class="collapse-item" href="department.php">Department</a> -->
-                        <a class="collapse-item" href="performance_rating.php">Performance Rating</a>
-                        <a class="collapse-item" href="release_order.php">Sign Release Order</a>
+                        <a class="collapse-item" href="performance_rating.php">Performance Rating</a>                        
                         <a class="collapse-item" href="verify_trainings.php">Verify Trainings</a>
+                        <?php
+                    } if ($acl==2){
+                        ?>
                         
+                        <?php }?>
+                        <a class="collapse-item" href="release_order.php">Staff Release Order</a>
                     </div>
                 </div>
             </li>
+            <?php
+            }
+            ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -124,34 +134,34 @@
             </li>
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- <hr class="sidebar-divider"> -->
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Department</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- <hr class="sidebar-divider"> -->
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="manageEmployee.php">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Manage Employees</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
-            <hr class="sidebar-divider">
+            <!-- <hr class="sidebar-divider"> -->
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Reports</span></a>
-            </li>
+            </li> -->
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

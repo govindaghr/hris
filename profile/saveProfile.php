@@ -21,6 +21,18 @@
 		$department=mysqli_real_escape_string($con,$_REQUEST["department"]);
 		$nationality=mysqli_real_escape_string($con,$_REQUEST["nationality"]);
 		$address=mysqli_real_escape_string($con,$_REQUEST["address"]);
+
+		$sql = mysqli_query($con,"SELECT employee_id FROM employee WHERE employee_id = '".$emp_id."'");
+        $count = mysqli_num_rows($sql);
+        if($count >= 1){
+            ?>
+            <script type="text/javascript">
+                alert("Profile Already Added");
+                window.location.href = "../login.php";
+            </script>
+            <?php
+            exit();
+        }
 		
 		$qry="INSERT INTO `employee` (`employee_id`, `cid`, `name`, `gender`, `dob`, `email`, `mobile`, `designation`, `department`, `nationality`, `address`, `service_status`, `position_level`) VALUES('".$emp_id."', '".$cid."', '".$name."', '".$gender."', '".$dob."', '".$email."', '".$phone_no."', '".$designation."', '".$department."', '".$nationality."', '".$address."', '1', '".$position."')";
 		
@@ -29,7 +41,7 @@
             ?>
             <script type="text/javascript">
                 alert("Data Saved Successfully");
-                window.location.href = "<?=$path; ?>/index.php";
+                window.location.href = "../index.php";
             </script>
             <?php
 		}

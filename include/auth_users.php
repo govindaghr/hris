@@ -17,7 +17,7 @@
 		// echo $row['employee_id'];
     	$count = mysqli_num_rows($result);
 		if($count <= 0){
-			header("location:./addProfile.php");
+			header("location:./add_profile.php");
 			exit();
 		}
 	}
