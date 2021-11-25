@@ -11,7 +11,7 @@ include('./include/header.php');
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Verify Employee Trainings</h6>
+                            <h6 class="m-0 font-weight-bold text-primary"> Employee Details Report</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
