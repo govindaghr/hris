@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2021 at 12:46 PM
+-- Generation Time: Nov 25, 2021 at 05:41 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.31
 
@@ -50,7 +50,7 @@ INSERT INTO `access_level` (`access_id`, `access_desc`) VALUES
 
 CREATE TABLE `department` (
   `dept_id` int(11) NOT NULL,
-  `dept_name` varchar(50) NOT NULL
+  `dept_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -58,8 +58,17 @@ CREATE TABLE `department` (
 --
 
 INSERT INTO `department` (`dept_id`, `dept_name`) VALUES
-(1, 'ICT'),
-(2, 'Civil');
+(1, 'MANAGEMENT'),
+(2, 'CIVIL ENGINEERING AND ENGINEERING GEOLOGY DEPARTMENT'),
+(3, 'ARCHITECTURE DEPARTMENT'),
+(4, 'M.E. RENEWABLE ENERGY AND ELECTRICAL ENGINEERING DEPARTMENT'),
+(5, 'ELECTRONICS AND COMMUNICATION ENGINEERING DEPARTMENT'),
+(6, 'INFORMATION TECHNOLOGY DEPARTMENT'),
+(7, 'SCIENCE AND HUMANITIES DEPARTMENT'),
+(8, 'FINANCE AND ACCOUNTS SECTION'),
+(9, 'ADMINISTRATION'),
+(10, 'LIBRARY'),
+(11, 'ICT UNIT');
 
 -- --------------------------------------------------------
 
@@ -134,9 +143,11 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`employee_id`, `cid`, `name`, `gender`, `dob`, `email`, `mobile`, `designation`, `department`, `nationality`, `address`, `service_status`, `position_level`) VALUES
+(20121002321, 11308001221, 'Sonam Lhamo', 'Female', '1998-06-09', '02180425.cst@rub.edu.bt', 17879265, 23, 11, 'Bhutanese', 'Barshong, Tsirang', 1, 10),
 (20131004347, 11915000409, 'Karma Tenzin', 'Male', '1991-06-23', '02190172.cst@rub.edu.bt', 1234564, 2, 1, 'Bhutanese', 'nn', 1, 4),
-(20131004348, 11915000410, 'Dorji Khandu', 'Male', '1994-01-23', 'govindaghr@yahoo.com', 1234565, 4, 2, 'Bhutanese', 'Hello', 1, 16),
-(20131004349, 11305001919, 'Govinda Ghimeray', 'Male', '1990-10-01', 'govindaghr@yahoo.com', 1234563, 24, 1, 'Bhutanese', 'Rinchending', 1, 12);
+(20131004348, 11915000410, 'Dorji Khandu', 'Male', '1994-01-23', 'govindaghr@yahoo.com', 1234565, 22, 11, 'Bhutanese', 'Hello', 1, 16),
+(20131004349, 11305001919, 'Govinda Ghimeray', 'Male', '1990-10-01', 'govindaghr@yahoo.com', 1234563, 11, 1, 'Bhutanese', 'Rinchending', 1, 9),
+(20131004350, 10805001122, 'Dr. Cheki Dorji', 'Male', '1962-06-22', 'president.cst@rub.edu.bt', 77960168, 1, 1, 'Bhutanese', 'Trashigang', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -157,10 +168,11 @@ CREATE TABLE `login` (
 --
 
 INSERT INTO `login` (`emp_id`, `password`, `access_level`, `last_login`, `status`) VALUES
-(20131004347, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, '2021-11-23 21:30:23', 1),
-(20131004348, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 2, '2021-11-23 21:25:59', 1),
-(20131004349, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, '2021-11-24 14:16:06', 1),
-(20131004350, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 4, NULL, 1);
+(20121002321, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 1, '2021-11-25 22:07:25', 1),
+(20131004347, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 1, '2021-11-24 18:09:35', 1),
+(20131004348, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 2, '2021-11-25 22:17:33', 1),
+(20131004349, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 3, '2021-11-25 22:28:25', 1),
+(20131004350, '6367c48dd193d56ea7b0baad25b19455e529f5ee', 4, '2021-11-25 22:22:25', 1);
 
 -- --------------------------------------------------------
 
@@ -182,7 +194,8 @@ CREATE TABLE `performance_rating` (
 
 INSERT INTO `performance_rating` (`pr_id`, `emp_id`, `fiscal_yr`, `rating`, `remarks`) VALUES
 (2, 20131004349, '2017-2018', 3.50, 'sdf'),
-(4, 20131004349, '2018-2019', 3.00, 'good');
+(4, 20131004349, '2018-2019', 3.00, 'good'),
+(5, 20121002321, '2019-2020', 3.50, 'Good');
 
 -- --------------------------------------------------------
 
@@ -249,7 +262,8 @@ CREATE TABLE `qualification` (
 
 INSERT INTO `qualification` (`q_id`, `emp_id`, `course_title`, `qualification_level`, `funding_source`, `country`, `college`, `certificate`, `start_date`, `end_date`, `remarks`, `verification_status`) VALUES
 (1, 20131004349, 'BEIT', 1, 'Private', 'Bhutan', 'CST', NULL, '2021-11-01', '2021-11-30', 'sdfgnn', 0),
-(13, 20131004349, 'BEIT', 4, 'Private', 'Bhutan', 'CST', NULL, '2021-11-01', '2021-11-30', 'Test Comment', 0);
+(13, 20131004349, 'BEIT', 4, 'Private', 'Bhutan', 'CST', NULL, '2021-11-01', '2021-11-30', 'Test Comment', 0),
+(15, 20121002321, 'Bachelors of of Engineering', 3, 'Government Scholarship', 'Bhutan', 'College of Science and Technology', './uploads/qualification/1637856770.pdf', '2018-07-02', '2022-06-30', 'Scholastic Honors received', 0);
 
 -- --------------------------------------------------------
 
@@ -300,7 +314,8 @@ CREATE TABLE `staff_release` (
 --
 
 INSERT INTO `staff_release` (`sr_id`, `empid`, `nominated_for`, `start_date`, `end_date`, `nomination_date`, `nominated_by`, `date_approved`, `approved_by`, `approval_status`, `remarks`) VALUES
-(2, 20131004347, 'CCNA Training at Paro', '2021-11-01', '2021-11-23', '2021-11-23', 20131004349, '2021-11-24', 20131004349, 'Approved', 'ff');
+(2, 20131004347, 'CCNA Training at Paro', '2021-11-01', '2021-11-23', '2021-11-23', 20131004349, '2021-11-24', 20131004349, 'Approved', 'ff'),
+(3, 20121002321, 'ICT Workshop at DITT', '2021-11-26', '2021-11-30', '2021-11-25', 20131004348, '2021-11-25', 20131004349, 'Approved', 'This training is very important for her');
 
 -- --------------------------------------------------------
 
@@ -344,7 +359,8 @@ CREATE TABLE `training` (
 
 INSERT INTO `training` (`tr_id`, `course_title`, `start_date`, `end_date`, `emp_id`, `funding_source`, `remarks`, `verification_status`) VALUES
 (1, 'BEEE', '2021-11-05', '2021-11-26', 20131004349, 'Private', 'sdfg', 0),
-(4, 'Cisco CCNA', '2021-11-02', '2021-11-22', 20131004349, 'Private', 'yes', 1);
+(4, 'Cisco CCNA', '2021-11-02', '2021-11-22', 20131004349, 'Private', 'yes', 1),
+(5, 'Cisco CCNA', '2021-11-01', '2021-11-17', 20121002321, 'College', '', 1);
 
 --
 -- Indexes for dumped tables
@@ -445,7 +461,7 @@ ALTER TABLE `access_level`
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `dept_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `dept_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `designation`
@@ -457,7 +473,7 @@ ALTER TABLE `designation`
 -- AUTO_INCREMENT for table `performance_rating`
 --
 ALTER TABLE `performance_rating`
-  MODIFY `pr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `pr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `position_level`
@@ -469,7 +485,7 @@ ALTER TABLE `position_level`
 -- AUTO_INCREMENT for table `qualification`
 --
 ALTER TABLE `qualification`
-  MODIFY `q_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `q_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `qualification_level`
@@ -481,7 +497,7 @@ ALTER TABLE `qualification_level`
 -- AUTO_INCREMENT for table `staff_release`
 --
 ALTER TABLE `staff_release`
-  MODIFY `sr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `status`
@@ -493,7 +509,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `training`
 --
 ALTER TABLE `training`
-  MODIFY `tr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `tr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
