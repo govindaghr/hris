@@ -15,7 +15,7 @@ list($employee_id, $cid, $name, $gender, $dob, $email, $mobile, $designation, $d
                             <div class="p-5">
                                 <!-- Page Heading -->
                                 <div class="text-center">
-                                    <h1 class="h3 mb-0 text-gray-800">Biodata</h1>
+                                    <h1 class="h3 mb-0 text-gray-800">Curriculum Vitae</h1>
                                 </div>
                                 <hr>
                             </div>
